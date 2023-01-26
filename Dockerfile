@@ -1,6 +1,6 @@
 FROM node:16
 LABEL project="nodejs"
-ADD  .  /angular-realworld-example-app
+ADD  . /angular-realworld-example-app
 RUN cd angular-realworld-example-app && npm install -g @angular/cli && npm install 
 EXPOSE 4200
 WORKDIR /angular-realworld-example-app

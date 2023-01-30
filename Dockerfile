@@ -1,7 +1,6 @@
-FROM maven:3.8.6-openjdk-11
-RUN git clone https://github.com/spring-projects/spring-petclinic.git && cd spring-petclinic && mvn package
-
-FROM openjdk:11
-COPY --from=build /spring-petclinic/target/spring-petclinic-2.7.3.jar /spring-petclinic-2.7.3.jar
-EXPOSE 8080
-CMD ["java","-jar","spring-petclinic-2.7.3.jar"]
+FROM ubuntu:22.04
+RUN apt update && && apt install git -y && git clone https://github.com/gothinkster/angular-realworld-example-app.git && cd angular-realworld-example-app
+RUN apt install curl -y && curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.bashrc && nvm install 16.13.0
+RUN npm install -g @angular/cli && npm install
+EXPOSE 4200
+CMD ["ng","serve","--host","0.0.0.0"]

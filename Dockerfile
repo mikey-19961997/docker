@@ -1,7 +1,10 @@
 FROM alpine:3
 ARG user=mikey
-ARG password=ravi
+ARG group=ravi
 ENV database=mysql
 ENV rockstar=mikey
-RUN echo ${user}
+RUN groupadd -g ${gid} ${group} \
+    && useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
+
+USER ${user}
 CMD ["sleep","1d"]

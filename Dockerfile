@@ -1,4 +1,4 @@
-FROM apline:3
+FROM alpine:3
 ARG user=mikey
 ARG password=ravi
 ENV database=mysql

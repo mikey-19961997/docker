@@ -4,4 +4,5 @@ RUN git clone https://github.com/Sysnove/flask-hello-world.git && \
     mv hello.py app.py && \
     pip3 install flask
 EXPOSE 5000
+WORKDIR /app.py
 CMD ["flask","run","-h","0.0.0.0"]

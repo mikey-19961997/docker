@@ -5,4 +5,4 @@ RUN git clone https://github.com/simonplend/example-app-nodejs-backend-react-fro
     npm run build
 EXPOSE 3000
 WORKDIR /example-app-nodejs-backend-react-frontend
-CMD ["npm","start","-h","0.0.0.0"]
+CMD ["npm","start","--host","0.0.0.0"]

@@ -1,16 +1,8 @@
-FROM ubuntu:22.04 as build
-RUN mkdir /Nop
-RUN apt update && \
-    apt install wget unzip -y && \
-    cd /Nop && \
-    wget "https://github.com/nopSolutions/nopCommerce/releases/download/release-4.60.1/nopCommerce_4.60.1_NoSource_linux_x64.zip" && \
-    unzip /Nop/nopCommerce_4.60.1_NoSource_linux_x64.zip && \
-    rm /Nop/nopCommerce_4.60.1_NoSource_linux_x64.zip
-    
-
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
-COPY --from=build /Nop /Nop
-EXPOSE 80
-WORKDIR /Nop
-CMD ["dotnet","/Nop/Nop.Web.dll"]
+FROM node:16
+RUN git clone https://github.com/simonplend/example-app-nodejs-backend-react-frontend.git && \
+    cd example-app-nodejs-backend-react-frontend/ && \
+    npm install && \
+    npm run build
+EXPOSE 3000
+WORKDIR /example-app-nodejs-backend-react-frontend
+CMD ["npm","start","-h","0.0.0.0"]

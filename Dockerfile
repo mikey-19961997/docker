@@ -1,8 +1,6 @@
-FROM python:3.8.16
-RUN git clone https://github.com/Sysnove/flask-hello-world.git && \
-    cd flask-hello-world && \
-    mv hello.py app.py && \
-    pip3 install flask
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+RUN apt install unzip -y && \
+    wget https://github.com/nopSolutions/nopCommerce/releases/download/release-4.60.1/nopCommerce_4.60.1_NoSource_linux_x64.zip && \
+    unzip nopCommerce_4.60.1_NoSource_linux_x64.zip && \
 EXPOSE 5000
-WORKDIR /flask-hello-world
-CMD ["flask","run","-h","0.0.0.0"]
+CMD ["dotnet","Nop","Web","dll"]

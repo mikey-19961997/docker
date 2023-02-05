@@ -13,4 +13,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 COPY --from=build /Nop /Nop
 EXPOSE 5000
 WORKDIR /Nop
-CMD ["dotnet","Nop","Web","dll"]
+CMD ["dotnet","/Nop/Nop.Web.dll"]

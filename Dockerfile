@@ -10,6 +10,6 @@ RUN mkdir /Nop && cd /Nop && \
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 COPY --from=build /Nop /Nop
-EXPOSE 80
+EXPOSE 5000
 WORKDIR /Nop
 CMD ["dotnet","Nop","Web","dll"]

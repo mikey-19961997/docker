@@ -11,6 +11,6 @@ RUN apt update && \
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 COPY --from=build /Nop /Nop
-EXPOSE 5000
+EXPOSE 80
 WORKDIR /Nop
 CMD ["dotnet","/Nop/Nop.Web.dll"]

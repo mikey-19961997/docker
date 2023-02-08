@@ -2,4 +2,8 @@ version: "3.9"
 services:
   app:
     build: ./StudentCoursesRestAPI/
+    ports:
+      - target: 8080
+        published: 8084
+        protocol: tcp
 

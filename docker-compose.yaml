@@ -1,27 +1,5 @@
 version: "3.9"
 services:
   app:
-    image: nginx
-    ports:
-      - target: 80
-        published: 8083
-        protocol: tcp
-    networks:
-      - mikey-net
-    volumes:
-      - type: volume
-        source: mikey-vol
-        target: /data
-      - type: bind
-        source: /ravi
-        target: /mikey
-networks:
-  mikey-net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.0.0/16
-volumes:
-  mikey-vol:
-
+    build: .
+    

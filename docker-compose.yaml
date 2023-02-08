@@ -21,6 +21,10 @@ services:
       - MYSQL_PASSWORD=directdevops
     networks:
       - my-net2
+    volumes:
+      - type: volume
+        source: mike-vol
+        target: /var/lib/mysql
 networks:
   my-net:
     driver: bridge
@@ -34,3 +38,5 @@ networks:
       driver: default
       config:
         - subnet: 192.168.0.0/16
+volumes:
+  mike-vol:

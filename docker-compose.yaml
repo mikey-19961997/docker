@@ -13,7 +13,7 @@ services:
         source: mikey-vol
         target: /data
       - type: bind
-        source: /ravi
+        source: ./ravi
         target: /mikey
 networks:
   mikey-net:

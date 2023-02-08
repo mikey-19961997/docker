@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  app:
+    image: nginx
+    ports:
+      - target: 80
+        published: 8081
+        protocol: tcp
+        mode: host
+    networks:
+      - mikey-net
+networks:
+  mikey-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/16
+    

@@ -7,12 +7,23 @@ services:
         published: 8084
         protocol: tcp
     environment:
-      - MYSQL_SERVER=172.22.0.2
+      - MYSQL_SERVER=mike-sql
+    networks:
+      - my-net
   dbserver:
+    container_name: mike-sql
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=test
       - MYSQL_USER=directdevops
       - MYSQL_PASSWORD=directdevops
-
+    networks:
+      - my-net
+networks:
+  my-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/16

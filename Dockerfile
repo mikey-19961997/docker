@@ -1,8 +1,14 @@
-FROM node:16
-RUN git clone https://github.com/simonplend/example-app-nodejs-backend-react-frontend.git && \
-    cd example-app-nodejs-backend-react-frontend && \
-    npm install && \
-    npm run build
-EXPOSE 3000
-WORKDIR /example-app-nodejs-backend-react-frontend
-CMD ["npm","start","--host","0.0.0.0"]
+FROM python:3.7-alpine
+LABEL author=KHAJA
+LABEL blog=directdevops.blog
+ARG HOME_DIR='/studentcourses'
+ADD . $HOME_DIR
+ENV MYSQL_USERNAME='directdevops'
+ENV MYSQL_PASSWORD='directdevops'
+ENV MYSQL_SERVER='localhost'
+ENV MYSQL_SERVER_PORT='3306'
+ENV MYSQL_DATABASE='test'
+EXPOSE 8080
+WORKDIR $HOME_DIR
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python", "app.py"]

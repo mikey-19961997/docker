@@ -8,6 +8,10 @@ services:
         protocol: tcp
     networks:
       - mikey-net
+    volumes:
+      - type: volume
+        source: mikey-vol
+        target: /data
 networks:
   mikey-net:
     driver: bridge
@@ -15,4 +19,7 @@ networks:
       driver: default
       config:
         - subnet: 192.168.0.0/16
+volumes:
+  mikey-vol:
+
 

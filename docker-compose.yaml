@@ -7,7 +7,7 @@ services:
         published: 8084
         protocol: tcp
     environment:
-      - MYSQL_SERVER=172.17.0.2
+      - MYSQL_SERVER=172.22.0.2
   dbserver:
     image: mysql:5.7
     environment:

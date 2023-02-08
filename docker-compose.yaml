@@ -7,12 +7,13 @@ services:
         published: 8084
         protocol: tcp
     environment:
-      - MYSQL_SERVER=dbserver
+      - MYSQL_SERVER=mike-sql
     networks:
       - my-net
     depends_on:
       - dbserver
   dbserver:
+    container_name: mike-sql
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=password
